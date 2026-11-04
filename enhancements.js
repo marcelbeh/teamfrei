@@ -47,8 +47,6 @@
   const max=Math.max(1,...counts.map(x=>x.count));
   body.innerHTML='<div class="chart-bars">'+counts.map(p=>'<div class="chart-row"><b>'+safe(p.name)+'</b><div class="chart-track"><div class="chart-fill" style="width:'+(100*p.count/max)+'%"></div></div><b>'+p.count+' T.</b></div>').join('')+'</div><p class="hint">Frankies Auswertung ist humorvoll und keine Leistungsbewertung.</p>';
  };
- const originalRender=render;
- render=function(){originalRender();if(section.classList.contains('active'))showHistory();if(chart.classList.contains('active'))showCharts()};
  document.querySelector('nav button[data-view="charts"]').addEventListener('click',showCharts);
  const note=document.createElement('p');note.className='year-note';note.textContent='Wochenenden und NRW-Feiertage zählen nicht als Urlaubstage.';
  document.getElementById('fairRows').closest('.panel').append(note);
